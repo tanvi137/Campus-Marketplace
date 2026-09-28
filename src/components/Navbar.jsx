@@ -110,17 +110,6 @@ function Navbar({
             )}
           </Link>
 
-          <a
-            href="/#categories"
-            className={`text-sm font-semibold transition-colors ${
-              isDark
-                ? "text-slate-300 hover:text-white"
-                : "text-slate-500 hover:text-slate-950"
-            }`}
-          >
-            Categories
-          </a>
-
           <Link
             to="/my-listings"
             className={navLinkClass(
@@ -207,6 +196,7 @@ function Navbar({
               size={17}
               strokeWidth={2.5}
             />
+
             Sell an item
           </Link>
         </div>
@@ -291,18 +281,6 @@ function Navbar({
               Browse
             </Link>
 
-            <a
-              href="/#categories"
-              onClick={closeMobileMenu}
-              className={`rounded-xl px-3 py-3 text-sm font-semibold transition-colors ${
-                isDark
-                  ? "text-slate-300 hover:bg-slate-900 hover:text-white"
-                  : "text-slate-700 hover:bg-slate-50"
-              }`}
-            >
-              Categories
-            </a>
-
             <Link
               to="/my-listings"
               onClick={closeMobileMenu}
@@ -337,6 +315,7 @@ function Navbar({
                       : "none"
                   }
                 />
+
                 Favorites
               </span>
 
@@ -356,6 +335,7 @@ function Navbar({
                 size={17}
                 strokeWidth={2.5}
               />
+
               Sell an item
             </Link>
           </nav>

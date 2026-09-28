@@ -12,6 +12,8 @@ import ProductCard from "./ProductCard";
 function MarketplaceSection({
   products,
   searchQuery = "",
+  searchVersion = 0,
+  onClearSearch,
   favorites,
   onToggleFavorite,
   notifications,
@@ -40,7 +42,7 @@ function MarketplaceSection({
 
   useEffect(() => {
     setLocalSearch(searchQuery);
-  }, [searchQuery]);
+  }, [searchQuery, searchVersion]);
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
@@ -119,12 +121,20 @@ function MarketplaceSection({
 
   const clearSearch = () => {
     setLocalSearch("");
+
+    if (onClearSearch) {
+      onClearSearch();
+    }
   };
 
   const clearFilters = () => {
     setLocalSearch("");
     setCategory("All categories");
     setSortBy("Newest first");
+
+    if (onClearSearch) {
+      onClearSearch();
+    }
   };
 
   const hasFilters =

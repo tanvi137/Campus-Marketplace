@@ -6,7 +6,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MarketplaceSection from "./components/MarketplaceSection";
@@ -17,7 +16,6 @@ import Sell from "./pages/Sell";
 import MyListings from "./pages/MyListings";
 import EditListing from "./pages/EditListing";
 import StarField from "./components/StarField";
-
 import useLocalStorage from "./hooks/useLocalStorage";
 import { initialProducts as seedProducts } from "./data/products";
 
@@ -52,6 +50,9 @@ function AppContent() {
 
   const [searchQuery, setSearchQuery] =
     useState("");
+
+  const [searchVersion, setSearchVersion] =
+    useState(0);
 
   const isDark = theme === "dark";
 
@@ -135,6 +136,9 @@ function AppContent() {
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+    setSearchVersion((currentVersion) =>
+      currentVersion + 1
+    );
 
     setTimeout(() => {
       document
@@ -148,6 +152,16 @@ function AppContent() {
 
   const handleCategorySelect = (category) => {
     setSearchQuery(category);
+    setSearchVersion((currentVersion) =>
+      currentVersion + 1
+    );
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+    setSearchVersion((currentVersion) =>
+      currentVersion + 1
+    );
   };
 
   const handleAddProduct = (product) => {
@@ -408,7 +422,6 @@ function AppContent() {
           : "bg-transparent text-slate-950"
       }`}
     >
-      {/* GLOBAL DARK MODE STAR BACKGROUND */}
       {isDark && (
         <div
           className="pointer-events-none fixed inset-0 z-[1]"
@@ -418,7 +431,6 @@ function AppContent() {
         </div>
       )}
 
-      {/* WEBSITE CONTENT */}
       <div className="relative z-[2]">
         <Navbar
           favorites={favorites}
@@ -512,6 +524,8 @@ function AppContent() {
                 <MarketplaceSection
                   products={products}
                   searchQuery={searchQuery}
+                  searchVersion={searchVersion}
+                  onClearSearch={handleClearSearch}
                   favorites={favorites}
                   onToggleFavorite={
                     handleToggleFavorite
