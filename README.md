@@ -1,16 +1,63 @@
-# React + Vite
+# Campus Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern campus marketplace where students can buy, sell, search, and manage products within their college community.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Campus Marketplace is a responsive React-based web application designed specifically for students. It allows users to browse campus products, view detailed product information, create their own listings, manage listings, and save products to favorites.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse products with images, names, prices, and categories
+- Search products by name
+- Filter products by category
+- View detailed product information
+- Create new product listings
+- Edit existing listings
+- Delete listings
+- Manage personal listings
+- Add products to favorites
+- Persistent data using browser localStorage
+- Responsive design for desktop and mobile devices
+- Light and dark themes
+- Modern campus-focused UI
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Lucide React
+- JavaScript
+- LocalStorage
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── Hero.jsx
+│   ├── MarketplaceSection.jsx
+│   ├── Navbar.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductGrid.jsx
+│   └── StarField.jsx
+│
+├── data/
+│   └── products.js
+│
+├── hooks/
+│   └── useLocalStorage.js
+│
+├── pages/
+│   ├── EditListing.jsx
+│   ├── Favorites.jsx
+│   ├── Marketplace.jsx
+│   ├── MyListings.jsx
+│   ├── ProductDetails.jsx
+│   └── Sell.jsx
+│
+├── App.jsx
+├── index.css
+└── main.jsx
